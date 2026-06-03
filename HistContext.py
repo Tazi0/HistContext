@@ -288,7 +288,11 @@ class HistContext(Gramplet):
                 errormessage = errormessage + (_(" in line: ")) + str(self.linenbr)
                 ErrorDialog(_("Error:"), errormessage)
             self.__show_error = False
-            date1 = Today()
+            if start_date:
+                date1 = Today()
+            else:
+                self.sort_date = ""
+                return "0"
             if self.__use_year:
                 datest = str(date1.to_calendar("gregorian").get_year())
             else:
