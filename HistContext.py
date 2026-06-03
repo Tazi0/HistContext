@@ -338,7 +338,8 @@ class HistContext(Gramplet):
                 else:
                     words[0] = self.normalize_date(words[0], True, True)
                     local_sort_date = self.sort_date
-                    words[1] = self.normalize_date(words[1], True, False)
+                    if words[1]:
+                        words[1] = self.normalize_date(words[1], True, False)
                     if words[1] == "0":
                         words[1] = ""
                     words[2] = words[2].replace('"', "")
